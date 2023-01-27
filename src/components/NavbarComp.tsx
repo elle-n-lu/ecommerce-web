@@ -1,17 +1,20 @@
-import React from 'react'
-import Navbar from './Navbar'
-import { RootState } from "../store/store";
-import { useSelector } from 'react-redux';
+import React from "react";
+import Navbar from "./Navbar";
+
+
+import { Account } from "../features/products/productSlice";
 interface NavbarCompProps {
-
+  name: Account
+  login: boolean
 }
 
-const NavbarComp:React.FC<NavbarCompProps>=({})=>{
-    const login = useSelector((state: RootState)=>state.loginer.login)
+const NavbarComp: React.FC<NavbarCompProps> = ({name,login}) => {
 
-        return (
-            <Navbar login={login} />
-        )
-}
+  return (
+    <div className="border-b-2">
+      <Navbar login={login} name={name} />
+    </div>
+  );
+};
 
-export default NavbarComp
+export default NavbarComp;

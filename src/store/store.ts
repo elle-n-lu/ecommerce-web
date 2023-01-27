@@ -1,17 +1,20 @@
-import { configureStore } from '@reduxjs/toolkit'
-import counteReducer from '../features/counter/countSlice'
-import loginReducer from '../features/account/loginSlice'
-import cartReducer from '../features/cart/cartSlice'
+import { configureStore } from "@reduxjs/toolkit";
+
+import cartReducer from "../features/cart/cartSlice";
+
+import { addProductApi } from "../features/products/productSlice";
 
 export const store = configureStore({
   reducer: {
-    counter: counteReducer,
-    loginer: loginReducer,
-    carter: cartReducer
+    carter: cartReducer,
+
+    [addProductApi.reducerPath]: addProductApi.reducer,
   },
-})
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(addProductApi.middleware),
+});
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>
+export type RootState = ReturnType<typeof store.getState>;
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch
+export type AppDispatch = typeof store.dispatch;

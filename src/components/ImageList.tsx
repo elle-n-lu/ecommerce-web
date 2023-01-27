@@ -1,29 +1,28 @@
 import React from "react";
-import { cartItem, product } from "../features/cart/cartSlice";
+import { Account, useGetProductsQuery } from "../features/products/productSlice";
 import ImageItem from "./ImageItem";
+interface ImageListProps {
+  name: Account
+}
 
-interface ImageListProps {}
+const ImageList: React.FC<ImageListProps> = ({name}) => {
+  const {data,isLoading} = useGetProductsQuery( )
 
-const ImageList: React.FC<ImageListProps> = ({}) => {
-  const item: cartItem = {
-    cart: {
-      id: 1,
-      title: "Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport",
-      price: 599,
-      url: "https://flowbite.com/docs/images/products/apple-watch.png",
-    },
-  };
-  // const item=(<ImageItem />)
-  const list = [item, item, item, item, item];
-  return (
-    <div className="flex flex-wrap">
-      {list.map((s, index) => (
-        <div className=" m-5" key={index}>
-          <ImageItem m={s} />
-        </div>
-      ))}
-    </div>
-  );
+  if(!data || isLoading){
+    return (<div>loading</div>)
+  }else{
+
+    return (
+      <div className="flex flex-wrap">
+        {data.map((s, index) => (
+          <div className=" m-5" key={index}>
+            <ImageItem m={s} name={name} />
+          </div>
+        ))}
+     
+      </div>
+    );
+  }
 };
 
 export default ImageList;
