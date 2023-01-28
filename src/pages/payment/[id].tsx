@@ -83,7 +83,7 @@ const Payment: React.FC<paymentProps> = ({}) => {
       />
     </button>
   );
-  const [val, setVal] = useState(0);
+  const [val, setVal] = useState(1);
   const body = (
     <div className=" pt-8">
       <div className=" container items-center justify-center mx-auto w-full md:w-1/2">
