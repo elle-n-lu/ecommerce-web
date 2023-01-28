@@ -7,6 +7,7 @@ import InputField from "../../components/InputField";
 import { useChangePsdMutation } from "../../features/products/productSlice";
 import { errors } from "../signIn";
 import { toErrorMap } from "../../utils/toErrorMap";
+import "dotenv-safe/config";
 interface ForgotPsdProps {}
 
 const ForgotPsd: React.FC<ForgotPsdProps> = ({}) => {

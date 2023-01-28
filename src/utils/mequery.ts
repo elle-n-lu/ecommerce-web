@@ -1,4 +1,5 @@
 import axios from "axios";
+import "dotenv-safe/config";
 
 export const meque = async (setName: (any: any) => any) => {
   const res = await axios

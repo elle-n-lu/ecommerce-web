@@ -8,6 +8,7 @@ import {
 import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
 import AvaImg from "./AvaImg";
+import "dotenv-safe/config";
 import { useNavigate } from "react-router-dom";
 interface avatarProps {
   data: Account;

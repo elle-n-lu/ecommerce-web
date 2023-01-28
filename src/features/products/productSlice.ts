@@ -4,6 +4,7 @@ import {
 } from "@reduxjs/toolkit/query/react"
 import { cartItem, product } from "../cart/cartSlice";
 import { shippingAddress } from "../shipping/shipSlice";
+import "dotenv-safe/config";
 export interface productAdmin {
   title: string;
   price: number;

@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "proxy":"https://e-commerce1.herokuapp.com/",
+  "proxy": "https://e-commerce1.herokuapp.com/",
   "dependencies": {
     "@paypal/react-paypal-js": "^7.8.2",
     "@reduxjs/toolkit": "^1.9.1",
@@ -14,6 +14,7 @@
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "axios": "^1.2.3",
+    "dotenv-safe": "^8.2.0",
     "formik": "^2.2.9",
     "moment": "^2.29.4",
     "react": "^18.2.0",
