@@ -42,7 +42,7 @@ const ForgotPsd: React.FC<ForgotPsdProps> = ({}) => {
           }
 
           if ("data" in res) {
-            const success_url = "http://localhost:3000/";
+            const success_url = process.env.URL as string;
             window.location.href = success_url;
           }
         }}

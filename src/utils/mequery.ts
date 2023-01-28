@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const meque = async (setName: (any: any) => any) => {
   const res = await axios
-    .get("http://localhost:5000/api/user/me", {
+    .get(`${process.env.URL as string}user/me`, {
       withCredentials: true,
     })
     .catch((err) => {

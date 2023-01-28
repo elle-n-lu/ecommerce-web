@@ -64,78 +64,78 @@ export interface changePsdParams {
 
 export const addProductApi = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://e-commerce1.herokuapp.com/api/",
+    baseUrl: process.env.URL,
     credentials: "include",
     
   }),
   endpoints: (build) => ({
     logout: build.mutation<boolean, void>({
-      query: () => ({ url: `user/useLogout`, method: "POST" }),
+      query: () => ({ url: `api/user/useLogout`, method: "POST" }),
     
     }),
     me: build.query<Account, void>({
-      query: () => ({ url: `user/me`, method: "GET" }),
+      query: () => ({ url: `api/user/me`, method: "GET" }),
     }),
     adminlogin: build.mutation<Account , login>({
-      query: (body) => ({ url: `user/useLogin`, method: "POST", body }),
+      query: (body) => ({ url: `api/user/useLogin`, method: "POST", body }),
     }),
     addPro: build.mutation<productAdmin, productAdmin>({
-      query: (body) => ({ url: `import/newproduct`, method: "POST", body }),
+      query: (body) => ({ url: `api/import/newproduct`, method: "POST", body }),
     }),
     getOneduct: build.query<product, string>({
-      query: (id) => ({ url: `import/newproduct/${id}`, method: "GET" }),
+      query: (id) => ({ url: `api/import/newproduct/${id}`, method: "GET" }),
     }),
     editOneduct:build.mutation<product,editParams>({
-      query:(body)=>({url:`import/update/${body.id}`, method:"PUT",body})
+      query:(body)=>({url:`api/import/update/${body.id}`, method:"PUT",body})
     }),
     deleteOneduct:build.mutation<any, string>({
-      query: (id) => ({ url: `import/delete/${id}`, method: "POST" }),
+      query: (id) => ({ url: `api/import/delete/${id}`, method: "POST" }),
     }),
     getProducts: build.query<product[], void>({
-      query: () => ({ url: `import/allproducts`, method: "GET" }),
+      query: () => ({ url: `api/import/allproducts`, method: "GET" }),
     }),
     addOrder: build.mutation<any, shipInfo>({
-      query: (body) => ({ url: `order/newOrder`, method: "POST", body }),
+      query: (body) => ({ url: `api/order/newOrder`, method: "POST", body }),
     }),
     checkOrder: build.query<shipInfo, string>({
-      query: (id) => ({ url: `order/newOrder/${id}`, method: "GET" }),
+      query: (id) => ({ url: `api/order/newOrder/${id}`, method: "GET" }),
     }),
     deleteOrder:build.mutation<any, string>({
-      query: (id) => ({ url: `order/deleteOrder/${id}`, method: "POST" }),
+      query: (id) => ({ url: `api/order/deleteOrder/${id}`, method: "POST" }),
     }),
     deleteMany:build.mutation<any, any[]>({
-      query: (body) => ({ url: `order/deleteMany`, method: "POST", body }),
+      query: (body) => ({ url: `api/order/deleteMany`, method: "POST", body }),
     }),
     showOrders: build.query<shipInfo[], void>({
-      query:()=>({url:`order/orders`, method:'GET'})
+      query:()=>({url:`api/order/orders`, method:'GET'})
     }),
     addGuest: build.mutation<Account, Account>({
-      query: (body) => ({ url: `guest/guestlogin`, method: "POST", body }),
+      query: (body) => ({ url: `api/guest/guestlogin`, method: "POST", body }),
     }),
     addUser:build.mutation<Account, registe>({
-      query:(body)=>({url:`user/useRegiste`,method:'POST', body})
+      query:(body)=>({url:`api/user/useRegiste`,method:'POST', body})
     }),
     getOneGuest: build.query<Account, string>({
-      query: (id) => ({ url: `guest/guestlogin/${id}`, method: "GET" }),
+      query: (id) => ({ url: `api/guest/guestlogin/${id}`, method: "GET" }),
     }),
     editUser:build.mutation<Account,Account>({
-      query:(body)=>({url:`user/update/${body._id}`, method:"PUT",body})
+      query:(body)=>({url:`api/user/update/${body._id}`, method:"PUT",body})
     }),
     editAvatar:build.mutation<Account,avatarParams>({
-      query:(body)=>({url:`user/uploadAvatar/${body.id}`, method:"PUT",body})
+      query:(body)=>({url:`api/user/uploadAvatar/${body.id}`, method:"PUT",body})
     }),
 
     addProductStrip: build.mutation<any, productAdmin>({
-      query:(body)=>({url:`stripe/products`, method:'POST', body})
+      query:(body)=>({url:`api/stripe/products`, method:'POST', body})
     }),
     stripPay:build.mutation<any, any[]>({
-      query:(body)=>({url:`stripe/create-checkout-session`, method:'POST', body})
+      query:(body)=>({url:`api/stripe/create-checkout-session`, method:'POST', body})
     }),
     sendEmail:build.mutation<any, sendEmailParams>({
-      query:(body)=>({url:`user/forgotpassword/${body.id}`,method:'POST', body})
+      query:(body)=>({url:`api/user/forgotpassword/${body.id}`,method:'POST', body})
     }),
     changePsd:build.mutation<Account, changePsdParams>({
-      query:(body)=>({url:`user/changePsd/${body.id}`, method:'POST', body})
+      query:(body)=>({url:`api/user/changePsd/${body.id}`, method:'POST', body})
     })
   }),
 });

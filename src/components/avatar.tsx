@@ -63,7 +63,7 @@ const Avatar: React.FC<avatarProps> = ({ data }) => {
     const formData = new FormData();
     formData.append("image", file);
     const step1 = await axios
-      .post("http://127.0.0.1:5000/upload", formData, {})
+      .post(`${process.env.URL  as string}upload`, formData, {})
       .catch((error) => console.log(error.message));
     if (step1) {
       const res = await editAvatar({
