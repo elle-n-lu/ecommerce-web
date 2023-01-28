@@ -10,7 +10,7 @@
 
 ## § Check the demo
 
-Click [demo link](https://moiveweb.vercel.app)
+Click [demo link](https://lovely-marshmallow-ab9f95.netlify.app/)
 
 ## § Features
 
@@ -19,15 +19,11 @@ Click [demo link](https://moiveweb.vercel.app)
 ## Functions
 
 * admin/user/guest login/registe/logOut
-* shopping cart CRUD
+* shopping cart/ Order CRUD
 * payment API: PayPal, Stripe
 * avatar upload && update with CLoudinary
 
-## § Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## § Deploy on Netlify
 
 ## § TODO
 
