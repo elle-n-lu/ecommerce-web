@@ -1,9 +1,8 @@
 import axios from "axios";
-import "dotenv-safe/config";
 
 export const meque = async (setName: (any: any) => any) => {
   const res = await axios
-    .get(`${process.env.URL as string}api/user/me`, {
+    .get(`https://e-commerce1.herokuapp.com/api/user/me`, {
       withCredentials: true,
     })
     .catch((err) => {

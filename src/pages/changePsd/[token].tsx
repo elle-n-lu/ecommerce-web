@@ -7,7 +7,6 @@ import InputField from "../../components/InputField";
 import { useChangePsdMutation } from "../../features/products/productSlice";
 import { errors } from "../signIn";
 import { toErrorMap } from "../../utils/toErrorMap";
-import "dotenv-safe/config";
 interface ForgotPsdProps {}
 
 const ForgotPsd: React.FC<ForgotPsdProps> = ({}) => {
@@ -43,7 +42,7 @@ const ForgotPsd: React.FC<ForgotPsdProps> = ({}) => {
           }
 
           if ("data" in res) {
-            const success_url = process.env.URL as string;
+            const success_url = "https://lovely-marshmallow-ab9f95.netlify.app"
             window.location.href = success_url;
           }
         }}

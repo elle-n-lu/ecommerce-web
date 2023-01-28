@@ -4,7 +4,6 @@ import {
 } from "@reduxjs/toolkit/query/react"
 import { cartItem, product } from "../cart/cartSlice";
 import { shippingAddress } from "../shipping/shipSlice";
-import "dotenv-safe/config";
 export interface productAdmin {
   title: string;
   price: number;
@@ -65,7 +64,7 @@ export interface changePsdParams {
 
 export const addProductApi = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.URL,
+    baseUrl: "https://e-commerce1.herokuapp.com/",
     credentials: "include",
     
   }),

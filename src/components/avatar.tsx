@@ -8,7 +8,6 @@ import {
 import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
 import AvaImg from "./AvaImg";
-import "dotenv-safe/config";
 import { useNavigate } from "react-router-dom";
 interface avatarProps {
   data: Account;
@@ -64,7 +63,7 @@ const Avatar: React.FC<avatarProps> = ({ data }) => {
     const formData = new FormData();
     formData.append("image", file);
     const step1 = await axios
-      .post(`${process.env.URL  as string}upload`, formData, {})
+      .post(`https://e-commerce1.herokuapp.com/upload`, formData, {})
       .catch((error) => console.log(error.message));
     if (step1) {
       const res = await editAvatar({
