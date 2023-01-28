@@ -1,7 +1,7 @@
 import {
   createApi,
   fetchBaseQuery
-} from "@reduxjs/toolkit/query/react";
+} from "@reduxjs/toolkit/query/react"
 import { cartItem, product } from "../cart/cartSlice";
 import { shippingAddress } from "../shipping/shipSlice";
 export interface productAdmin {
@@ -64,7 +64,7 @@ export interface changePsdParams {
 
 export const addProductApi = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000/api/",
+    baseUrl: "https://e-commerce1.herokuapp.com/api/",
     credentials: "include",
     
   }),
