@@ -1,11 +1,11 @@
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import MainPage from "../../components/mainPage";
 import {
   useCheckOrderQuery,
-  useStripPayMutation
+  useStripPayMutation,
 } from "../../features/products/productSlice";
 import { RootState } from "../../store/store";
 interface paymentProps {}
@@ -16,10 +16,12 @@ const Payment: React.FC<paymentProps> = ({}) => {
   const [paybustripe] = useStripPayMutation();
   const cart = useSelector((state: RootState) => state.carter.cart);
   const navigate = useNavigate();
+  const location = useLocation();
   const cartItems = useSelector((state: RootState) => state.carter.cart);
+  if (!location.pathname.includes("undefined")) {
   if (cartItems.length === 0) {
-    navigate("/cart");
-  }
+      navigate("/cart");
+    } }
 
   const priceList = cart.reduce(function (prev: any[], cur) {
     return [...prev, { price: cur.cart.priceStrip, quantity: cur.qty }];
@@ -79,24 +81,31 @@ const Payment: React.FC<paymentProps> = ({}) => {
       <img
         src="https://res.cloudinary.com/dueldevdc/image/upload/v1673854927/tfpxsutpqhsfw2txwbkh.png"
         style={{ marginLeft: "75%", width: "50%" }}
-        alt='stripe'
+        alt="stripe"
       />
     </button>
   );
-  const [val, setVal] = useState(1);
+  const [val, setVal] = useState(2);
+  const changeVal = (newVal: number) => {
+    return setVal(newVal);
+  };
   const body = (
     <div className=" pt-8">
       <div className=" container items-center justify-center mx-auto w-full md:w-1/2">
         <div className=" flex h-14 mb-14">
           <button
             className={`w-1/2 ${val === 1 ? "bg-slate-400" : ""}`}
-            onClick={() => setVal(1)}
+            onClick={() => {
+              changeVal(1);
+            }}
           >
             paypal
           </button>
           <button
             className={`w-1/2 ${val === 2 ? "bg-slate-400" : ""}`}
-            onClick={() => setVal(2)}
+            onClick={() => {
+              changeVal(2);
+            }}
           >
             stripe
           </button>
