@@ -39,7 +39,7 @@ const SignIn: React.FC<signInProps> = ({}) => {
 
             if ("data" in res) {
               navigate("/");
-              // navigate(0);
+              navigate(0);
             }
           }}
         >
